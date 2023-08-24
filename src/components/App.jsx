@@ -1,23 +1,19 @@
-// import React from 'react';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import '../styles/App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Nav from './Nav';
+import Categories from './Categories';
+import BookList from './BookList';
 
 function App() {
   return (
-    // <BrowserRouter>
-    //   <Navbar />
-    //   <Routes>
-    //     <Route path="/" element={<Home />} />
-    //     <Route path="/calculator" element={<CalculatorPage />} />
-    //     <Route path="/quote" element={<QuotePage />} />
-    //   </Routes>
-    // </BrowserRouter>
     <>
-      <h1 className="font-montserrat text-3xl font-bold text-blue-500">Bookstore CMS</h1>
-        <h2>BOOKS</h2>
-        <h2>CATEGORIES</h2>
-      <button />
+      <Nav />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<BookList />} />
+          <Route path="/categories" element={<Categories />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
