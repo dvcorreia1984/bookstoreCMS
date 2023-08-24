@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Categories from './Categories';
 import BookList from './BookList';
+import Form from './Form';
+import '../index.css';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
         </Routes>
       </BrowserRouter>
+      <Form />
     </>
   );
 }

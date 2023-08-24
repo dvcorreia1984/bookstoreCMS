@@ -1,21 +1,22 @@
-import React from "react";
+import React from 'react';
 
-function Nav() {
-  return (
-    <nav className="flex flex-row">
-      <ul>
-        <li>
-          <img src="/images/logo.png" alt="Bookstore CMS" />
-        </li>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/categories">Categories</a>
-        </li>
-      </ul>
-    </nav>
-  );
-}
+const Nav = () => (
+  <nav>
+    <ul className="flex flex-column gap-5 justify-evenly bg-white h-10">
+      <li>
+        <h1 className="font-montserrat text-3xl font-bold text-blue-500">Bookstore CMS</h1>
+      </li>
+      <li>
+        <a href="/">BOOKS</a>
+      </li>
+      <li>
+        <a href="/categories">CATEGORIES</a>
+      </li>
+      <li>
+        <a href="/categories">Login</a>
+      </li>
+    </ul>
+  </nav>
+);
 
 export default Nav;
