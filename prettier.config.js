@@ -1,2 +1,4 @@
 // prettier.config.js
-export const plugins = ['prettier-plugin-tailwindcss'];
+const plugins = ['prettier-plugin-tailwindcss'];
+
+export default plugins;

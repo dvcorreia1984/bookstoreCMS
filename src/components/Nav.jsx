@@ -1,1 +1,1 @@
-//Main navigation bar
+// Main navigation bar
