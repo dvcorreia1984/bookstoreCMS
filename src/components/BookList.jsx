@@ -16,7 +16,7 @@ const BookList = () => {
   return (
     <div>
       <div className="p-5 m-5">
-        {bookList.map((book, index) => (
+        {bookList.map((book) => (
           <Book key={book.id} book={book} removeBook={removeBook} />
         ))}
       </div>
