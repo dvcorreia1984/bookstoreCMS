@@ -5,6 +5,10 @@ const Form = ({ addBook }) => {
   const [author, setAuthor] = useState('');
 
   const handleSubmit = (e) => {
+    if (!title || !author) {
+      return;
+    }
+
     e.preventDefault();
     const newBook = { title, author };
     addBook(newBook);
