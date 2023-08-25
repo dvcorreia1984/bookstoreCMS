@@ -1,2 +1,0 @@
-# Set LF line endings for specific files
-*.json text eol=lf
