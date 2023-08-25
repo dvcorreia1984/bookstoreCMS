@@ -2,21 +2,6 @@ import React, { useState } from 'react';
 import Book from './Book';
 import Form from './Form';
 
-const initialBooklist = [
-  {
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-  },
-  {
-    title: 'Harry Potter and the Order of the Phoenix',
-    author: 'J.K. Rowling',
-  },
-  {
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
-  },
-];
-
 const BookList = () => {
   const [bookList, setBookList] = useState([]);
 
@@ -24,11 +9,15 @@ const BookList = () => {
     setBookList([...bookList, newBook]);
   };
 
+  const removeBook = (id) => {
+    setBookList(bookList.filter((book) => book.id !== id));
+  };
+
   return (
     <div>
       <div className="p-5 m-5">
         {bookList.map((book, index) => (
-          <Book key={index} book={book} />
+          <Book key={book.id} book={book} removeBook={removeBook} />
         ))}
       </div>
       <Form addBook={addBook} />

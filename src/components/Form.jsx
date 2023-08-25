@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const Form = ({ addBook }) => {
   const [title, setTitle] = useState('');
@@ -9,7 +10,7 @@ const Form = ({ addBook }) => {
       return;
     }
     e.preventDefault();
-    const newBook = { title, author };
+    const newBook = { id: uuidv4(), title, author };
     addBook(newBook);
     setTitle('');
     setAuthor('');

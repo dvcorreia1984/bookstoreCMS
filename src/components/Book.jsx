@@ -1,8 +1,11 @@
 import React from 'react';
+import Form from './Form';
+import BookList from './BookList';
 
 const Book = ({ book }) => {
   const handleRemoveBook = () => {
-    console.log('remove book');
+    console.log(book);
+    removeBook(book.id);
   };
 
   return (
