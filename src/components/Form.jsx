@@ -8,7 +8,6 @@ const Form = ({ addBook }) => {
     if (!title || !author) {
       return;
     }
-
     e.preventDefault();
     const newBook = { title, author };
     addBook(newBook);
@@ -32,7 +31,12 @@ const Form = ({ addBook }) => {
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
-        <button type="submit">Add Book</button>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Add Book
+        </button>
       </form>
     </div>
   );

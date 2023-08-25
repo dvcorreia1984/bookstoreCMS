@@ -10,7 +10,7 @@ const Nav = () => (
         <a href="/">BOOKS</a>
       </li>
       <li>
-        <a href="/categories">CATEGORIES</a>
+        <a href="/categories">AUTHOR</a>
       </li>
       <li>
         <a href="/categories">Login</a>
