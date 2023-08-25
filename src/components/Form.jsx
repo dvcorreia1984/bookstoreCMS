@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 
-const Form = () => {
+const Form = ({ addBook }) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title, author);
     const newBook = { title, author };
-    console.log(newBook);
+    addBook(newBook);
+    setTitle('');
+    setAuthor('');
   };
 
   return (
