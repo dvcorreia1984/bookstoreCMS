@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 const Form = ({ addBook }) => {
   const [title, setTitle] = useState('');
@@ -41,6 +42,10 @@ const Form = ({ addBook }) => {
       </form>
     </div>
   );
+};
+
+Form.propTypes = {
+  addBook: PropTypes.func.isRequired,
 };
 
 export default Form;
