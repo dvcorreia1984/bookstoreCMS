@@ -1,4 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+export const getBooks = createAsyncThunk('books/getBooks', async () => {
+  const response = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WBEsAZeVXOpBOImz94an/books/');
+  const data = await response.json();
+  console.log(data);
+  return data;
+});
+
+getBooks();
 
 const initialState = [
   {
