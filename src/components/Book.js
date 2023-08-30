@@ -40,7 +40,6 @@ const Book = () => {
 
   return (
     <div>
-      <h2>Book List</h2>
       <ul>{bookItems}</ul>
     </div>
   );
