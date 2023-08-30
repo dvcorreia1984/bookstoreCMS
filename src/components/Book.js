@@ -1,33 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-const Book = ({ book, removeBook }) => {
-  const handleRemoveBook = () => {
-    removeBook(book.id);
-  };
+const Book = () => {
+  const book = useSelector((state) => state.books);
+
+  const books = book.map((book) => (
+    <li key={book.id}>
+      {book.title}
+      {' '}
+      by
+      {' '}
+      {book.category}
+    </li>
+  ));
 
   return (
-    <div className="bg-white m-10">
-      <h2>{book.title}</h2>
-      <p>{book.author}</p>
-      <button
-        type="button"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={handleRemoveBook}
-      >
-        Remove
-      </button>
+    <div>
+      <ul>{books}</ul>
     </div>
   );
-};
-
-Book.propTypes = {
-  book: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-  }).isRequired,
-  removeBook: PropTypes.func.isRequired,
 };
 
 export default Book;
