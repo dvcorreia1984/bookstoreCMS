@@ -7,15 +7,15 @@ import '../index.css';
 
 function App() {
   return (
-    <>
-      <Nav />
-      <BrowserRouter>
+    <BrowserRouter>
+      <div>
+        <Nav />
         <Routes>
           <Route path="/" element={<BookList />} />
           <Route path="/categories" element={<Author />} />
         </Routes>
-      </BrowserRouter>
-    </>
+      </div>
+    </BrowserRouter>
   );
 }
 
