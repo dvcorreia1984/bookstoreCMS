@@ -2,21 +2,26 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Book = () => {
-  const book = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books);
 
-  const books = book.map((book) => (
-    <li key={book.id}>
-      {book.title}
-      {' '}
-      by
-      {' '}
-      {book.category}
-    </li>
+  const bookItems = books.map((bookItems) => (
+    <>
+      <li key={bookItems.item_id}>
+        {bookItems.item_id}
+        {bookItems.title}
+        {bookItems.author}
+        {bookItems.category}
+      </li>
+      <div>
+        <button type="button">Remove</button>
+      </div>
+
+    </>
   ));
 
   return (
     <div>
-      <ul>{books}</ul>
+      <ul>{bookItems}</ul>
     </div>
   );
 };
