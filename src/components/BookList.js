@@ -6,7 +6,7 @@ import { getBooks } from '../redux/books/booksSlice'; // Adjust the import path
 
 const BookList = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books.data);
 
   useEffect(() => {
     dispatch(getBooks());
