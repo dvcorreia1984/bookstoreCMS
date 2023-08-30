@@ -36,7 +36,6 @@ const Book = ({ book }) => {
   );
 };
 
-// Add PropTypes validation
 Book.propTypes = {
   book: PropTypes.shape({
     item_id: PropTypes.string.isRequired,

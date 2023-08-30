@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Nav = () => (
   <nav>
@@ -7,13 +8,13 @@ const Nav = () => (
         <h1 className="font-montserrat text-3xl font-bold text-blue-500">Bookstore CMS</h1>
       </li>
       <li>
-        <a href="/">BOOKS</a>
+        <Link to="/">BOOKS</Link>
       </li>
       <li>
-        <a href="/categories">AUTHOR</a>
+        <Link to="/categories">AUTHOR</Link>
       </li>
       <li>
-        <a href="/categories">Login</a>
+        <Link to="/login">Login</Link>
       </li>
     </ul>
   </nav>
