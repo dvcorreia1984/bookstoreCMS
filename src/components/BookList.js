@@ -6,16 +6,27 @@ import { getBooks } from '../redux/books/booksSlice';
 
 const BookList = () => {
   const dispatch = useDispatch();
-  const booksObject = useSelector((state) => state.books.data); // Get the books object
+  const booksObject = useSelector((state) => state.books.data);
+  const status = useSelector((state) => state.books.status);
 
   useEffect(() => {
-    dispatch(getBooks());
-  }, [dispatch]);
+    if (status === 'idle') {
+      dispatch(getBooks());
+    }
+  }, [status, dispatch]);
 
   const booksArray = Object.values(booksObject).reduce(
     (acc, currentValue) => acc.concat(currentValue), [],
   );
 
+  if (status === 'loading') {
+    return (
+      <div>
+        <h2>Book List</h2>
+        <div>Loading...</div>
+      </div>
+    );
+  }
   return (
     <div>
       <h2>Book List</h2>

@@ -7,9 +7,18 @@ export const getBooks = createAsyncThunk('books/getBooks', async () => {
 });
 
 const initialState = {
-  status: 'idle',
   data: [],
+  status: 'idle',
+  error: null,
 };
+
+export const addNewBook = createAsyncThunk(
+  'books/addNewBook',
+  async (initialBook) => {
+    const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WBEsAZeVXOpBOImz94an/books', initialBook);
+    return response.data;
+  },
+);
 
 export const booksSlice = createSlice({
   name: 'books',
@@ -33,9 +42,14 @@ export const booksSlice = createSlice({
       })
       .addCase(getBooks.rejected, (state) => {
         state.status = 'failed';
+      })
+      .addCase(addNewBook.fulfilled, (state, action) => {
+        state.data.push(action.payload);
       });
   },
 });
+
+export const selectAllBooks = (state) => state.books.data;
 
 export const { addBook, removeBook } = booksSlice.actions;
 export default booksSlice.reducer;
