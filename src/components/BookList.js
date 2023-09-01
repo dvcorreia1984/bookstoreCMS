@@ -1,9 +1,7 @@
-// BookList.js
-
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Form from './Form';
-import { getBooks, removeBook } from '../redux/books/booksSlice'; // Import the removeBook action
+import { getBooks, removeBook } from '../redux/books/booksSlice';
 
 const BookList = () => {
   const booksData = useSelector((state) => state.books);
@@ -24,14 +22,14 @@ const BookList = () => {
         {Object.keys(booksData).map((key) => (
           <div key={key}>
             <li>
-              {booksData[key][0].title}
+              {booksData[key].title}
               {' '}
               by
               {' '}
-              {booksData[key][0].author}
+              {booksData[key].author}
               {' '}
               (
-              {booksData[key][0].category}
+              {booksData[key].category}
               )
             </li>
             <div>
