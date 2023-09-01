@@ -1,6 +1,4 @@
-/* eslint-disable no-console */
 // bookSlice.js
-/* eslint-disable camelcase */
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
@@ -36,15 +34,8 @@ export const addBook = createAsyncThunk(
 export const removeBook = createAsyncThunk(
   'books/removeBook',
   async (book) => {
-    try {
-      console.log('Before DELETE request');
-      const response = await axios.delete(`${bookstoreApi}${API}/books/${book.item_id}`);
-      console.log('After DELETE request');
-      return response.data;
-    } catch (error) {
-      console.error('Error removing book:', error);
-      throw error;
-    }
+    const response = await axios.delete(`${bookstoreApi}${API}/books/${book.item_id}`);
+    return response.data;
   },
 );
 
@@ -59,9 +50,9 @@ export const booksSlice = createSlice({
         return books;
       })
       .addCase(removeBook.fulfilled, (state, action) => {
-        const { item_id } = action.payload;
+        const { itemId } = action.payload;
         const newState = { ...state };
-        delete newState[item_id];
+        delete newState[itemId];
         return newState;
       });
   },

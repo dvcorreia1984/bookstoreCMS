@@ -1,5 +1,5 @@
 // BookList.js
-/* eslint-disable camelcase */
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Form from './Form';
@@ -13,8 +13,8 @@ const BookList = () => {
     dispatch(getBooks());
   }, [dispatch]);
 
-  const handleRemoveBook = (book_id) => {
-    dispatch(removeBook({ item_id: book_id }));
+  const handleRemoveBook = (id) => {
+    dispatch(removeBook({ item_id: id }));
   };
 
   return (
@@ -24,10 +24,6 @@ const BookList = () => {
         {Object.keys(booksData).map((key) => (
           <div key={key}>
             <li>
-              {booksData[key][0].item_id}
-              {' '}
-              -
-              {' '}
               {booksData[key][0].title}
               {' '}
               by
