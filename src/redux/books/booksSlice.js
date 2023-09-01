@@ -1,55 +1,57 @@
+// booksSlice.js
+
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getBooks = createAsyncThunk('books/getBooks', async () => {
-  const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WBEsAZeVXOpBOImz94an/books');
-  return response.data;
-});
+export const bookstoreApi = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 
-const initialState = {
-  data: [],
-  status: 'idle',
-  error: null,
-};
+export const API = 'WBEsAZeVXOpBOImz94an';
 
-export const addNewBook = createAsyncThunk(
-  'books/addNewBook',
-  async (initialBook) => {
-    const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WBEsAZeVXOpBOImz94an/books', initialBook);
+export const getBooks = createAsyncThunk(
+  'books/getBooks',
+  async () => {
+    try {
+      const response = await axios.get(
+        `${bookstoreApi}${API}/books`,
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+);
+
+export const addBook = createAsyncThunk(
+  'books/addBook',
+  async (book) => {
+    const response = await axios.post(
+      `${bookstoreApi}${API}/books`, book,
+    );
+    return response.data;
+  },
+);
+
+export const removeBook = createAsyncThunk(
+  'books/removeBook',
+  async (book) => {
+    const response = await axios.delete(
+      `${bookstoreApi}${API}/books/${book.id}`,
+    );
     return response.data;
   },
 );
 
 export const booksSlice = createSlice({
   name: 'books',
-  initialState,
-  reducers: {
-    addBook: (state, action) => {
-      state.data.push(action.payload);
-    },
-    removeBook: (state, action) => {
-      state.data = state.data.filter((book) => book.item_id !== action.payload);
-    },
-  },
+  initialState: {},
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getBooks.pending, (state) => {
-        state.status = 'loading';
-      })
       .addCase(getBooks.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.data = action.payload;
-      })
-      .addCase(getBooks.rejected, (state) => {
-        state.status = 'failed';
-      })
-      .addCase(addNewBook.fulfilled, (state, action) => {
-        state.data.push(action.payload);
+        const books = action.payload;
+        return books;
       });
   },
 });
 
-export const selectAllBooks = (state) => state.books.data;
-
-export const { addBook, removeBook } = booksSlice.actions;
 export default booksSlice.reducer;

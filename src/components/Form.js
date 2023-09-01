@@ -1,7 +1,9 @@
+// Form.js
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addNewBook } from '../redux/books/booksSlice';
+import { addBook } from '../redux/books/booksSlice';
 
 const Form = () => {
   const [title, setTitle] = useState('');
@@ -9,7 +11,7 @@ const Form = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!title || !author) {
@@ -23,7 +25,7 @@ const Form = () => {
       category: 'fiction',
     };
 
-    await dispatch(addNewBook(newBook));
+    dispatch(addBook(newBook));
 
     setTitle('');
     setAuthor('');
