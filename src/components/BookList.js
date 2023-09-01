@@ -19,23 +19,23 @@ const BookList = () => {
     <div>
       <h2>Book List</h2>
       <ul>
-        {Object.keys(booksData).map((key) => (
-          <div key={key}>
+        {booksData.map((book) => (
+          <div key={book.item_id}>
             <li>
-              {booksData[key].title}
+              {book.title}
               {' '}
               by
               {' '}
-              {booksData[key].author}
+              {book.author}
               {' '}
               (
-              {booksData[key].category}
+              {book.category}
               )
             </li>
             <div>
               <button
                 type="button"
-                onClick={() => handleRemoveBook(key)}
+                onClick={() => handleRemoveBook(book.item_id)}
               >
                 Remove
               </button>

@@ -38,10 +38,12 @@ export const addBook = createAsyncThunk(
 export const removeBook = createAsyncThunk(
   'books/removeBook',
   async (book) => {
-    const response = await axios.delete(
-      `${bookstoreApi}${API}/books/${book.item_id}`,
-    );
-    return response.data;
+    try {
+      const response = await axios.delete(`${bookstoreApi}${API}/books/${book.item_id}`);
+      return response.data;
+    } catch (error) {
+      throw new Error(error);
+    }
   },
 );
 
@@ -51,7 +53,11 @@ export const booksSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getBooks.fulfilled, (state, action) => action.payload);
+      .addCase(getBooks.fulfilled, (state, action) => action.payload)
+      .addCase(removeBook.fulfilled, (state, action) => {
+        const { itemId } = action.payload;
+        return state.filter((book) => book.item_id !== itemId);
+      });
   },
 });
 
