@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types'; // Import PropTypes
 import { removeBook } from '../redux/books/booksSlice';
 import 'fontsource-roboto-slab';
+import progress from '../images/progress.png';
 
 const Book = ({ book }) => {
   const dispatch = useDispatch();
@@ -46,16 +47,40 @@ const Book = ({ book }) => {
               </button>
             </div>
           </div>
-          <div className="flex w-1/4 bg-gray-300 p-4">
-            <div>image</div>
-            <div>64%</div>
-            <div>Completed</div>
+          <div className="flex w-1/4 p-4">
+            <div className="w-20 h-20">
+              <img
+                className="w-20 h-20"
+                src={progress}
+                alt="book"
+              />
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <div>64%</div>
+              <div
+                className="text-gray-500"
+              >
+                Completed
+              </div>
+            </div>
           </div>
-          <div className="w-1/4 bg-gray-400 p-4">
-            <div>CURRENT CHAPTER</div>
-            <div>Chapter 17</div>
+          <div className="w-1/4">
+            <div
+              className="flex mt-5"
+              id="Chapter"
+            >
+              CURRENT CHAPTER
+            </div>
+            <div
+              id="ChapterNr"
+              className="my-2"
+            >
+              Chapter 17
+            </div>
             <button
+              id="ButtonFont"
               type="button"
+              className="bg-bs-azure text-white rounded px-4 py-2 mb-5"
             >
               UPDATE PROGRESS
             </button>
