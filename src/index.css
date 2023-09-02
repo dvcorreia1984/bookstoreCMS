@@ -2,18 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  width: 900px;
-}
-
 body {
   padding: 10vw 5vw;
   background-color: #f5f6fa;
 }
 
 img {
-  height: 3vh;
-  width: 3vh;
+  height: 20px;
+  width: 20px;
 }
 
 .panel-bg {
@@ -83,6 +79,13 @@ img {
 }
 
 #ButtonFont {
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 200;
+  color: #f5f6fa;
+}
+
+#submitbutton {
   font-family: 'Roboto', sans-serif;
   font-family: 'Roboto Slab', serif;
   font-weight: 200;

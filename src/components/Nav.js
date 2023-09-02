@@ -20,7 +20,7 @@ const Nav = () => (
         />
         <li>
           <Link to="/login">
-            <div className="w-10 h-10 border-2 border-gray-100-500 rounded-full flex items-center justify-center">
+            <div className="mr-8 w-10 h-10 border-2 border-gray-100-500 rounded-full flex items-center justify-center">
               <div><img src={user} alt="user" /></div>
             </div>
           </Link>

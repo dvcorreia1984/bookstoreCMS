@@ -3,7 +3,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const ApiUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AGRemu1Fs4gJ4OOG5uwP/books';
+export const ApiUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/s7fImtIvmkboSgyCOiZc/books';
 
 const initialState = {
   books: [],

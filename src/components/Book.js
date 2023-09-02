@@ -15,11 +15,14 @@ const Book = ({ book }) => {
   };
 
   return (
-    <div className="mx-10 my-2 rounded border border-gray-200">
+    <div className="bg-white mx-10 my-2 rounded border border-gray-200">
       <li>
         <div className="flex flex-wrap">
-          <div className="w-1/2">
-            <div className="font-montserrat w-12 h-4 text-sm font-bold not-italic p-5 text-gray-500  ">
+          <div className="w-5/12">
+            <div
+              id="category"
+              className="font-montserrat w-12 h-4 font-bold text-sm not-italic p-5 text-gray-500  "
+            >
               {book.category}
             </div>
             <div
@@ -30,25 +33,35 @@ const Book = ({ book }) => {
             </div>
             <div
               id="author"
-              className="w-24 h-5 text-sm font-light not-italic text-bs-sec ml-5 mt-[-5px]"
+              className="w-50 h-5 text-sm font-light not-italic text-bs-sec-2 ml-5 mt-[-5px]"
             >
               {book.author}
             </div>
             <div
               id="but"
-              className="m-4 flex gap-5 buttons text-bs-sec"
+              className="m-4 flex gap-3 buttons text-bs-sec"
             >
               <button
                 type="button"
               >
                 Comments
               </button>
+              <div
+                className="text-gray-200"
+              >
+                |
+              </div>
               <button
                 type="button"
                 onClick={handleRemoveBook}
               >
                 Remove
               </button>
+              <div
+                className="text-gray-200"
+              >
+                |
+              </div>
               <button
                 type="button"
               >
@@ -86,14 +99,14 @@ const Book = ({ book }) => {
             </div>
             <div
               id="ChapterNr"
-              className="my-2"
+              className="my-2 mb-6"
             >
               Chapter 17
             </div>
             <button
               id="ButtonFont"
               type="button"
-              className="bg-bs-azure text-white rounded px-4 py-2 mb-5"
+              className="bg-bs-azure text-sm rounded px-8 py-1 mb-5"
             >
               UPDATE PROGRESS
             </button>
