@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         'pale-grey': '#f5f6fa',
         'bs-azure': '#0290ff',
+        'bs-sec': '#4386bf',
       },
     },
   },
