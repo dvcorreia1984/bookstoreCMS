@@ -7,11 +7,14 @@ import { getBooks, removeBook } from '../redux/books/booksSlice';
 
 const BookList = () => {
   const books = useSelector((state) => state.books.books);
+  const status = useSelector((state) => state.books.status);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBooks());
-  }, [dispatch]);
+    if (status === 'idle') {
+      dispatch(getBooks());
+    }
+  }, [status, dispatch]);
 
   const HandleRemoveBook = async (id) => {
     dispatch(removeBook(id));
