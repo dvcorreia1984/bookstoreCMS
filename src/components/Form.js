@@ -22,7 +22,7 @@ const Form = () => {
       id: uuidv4(),
       title,
       author,
-      category: 'fiction',
+      category: 'Fiction',
     };
 
     dispatch(addBook(newBook));
@@ -51,7 +51,7 @@ const Form = () => {
         />
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-bs-azure hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Add Book
         </button>

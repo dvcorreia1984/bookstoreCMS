@@ -19,7 +19,6 @@ const BookList = () => {
 
   return (
     <div>
-      <h2>Book List</h2>
       <ul>
         {books.map((book) => (
           <div key={book.id}>
