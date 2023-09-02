@@ -22,7 +22,7 @@ const Form = () => {
       id: uuidv4(),
       title,
       author,
-      category: 'Fiction',
+      category: 'Action',
     };
 
     dispatch(addBook(newBook));
@@ -54,7 +54,7 @@ const Form = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
-          className="border-2 border-gray-300 rounded-lg p-2 focus:border-gray-500"
+          className="w-35 border-2 border-gray-300 rounded-lg p-2 focus:border-gray-500"
           type="text"
           name="author"
           placeholder="Author"
@@ -62,8 +62,9 @@ const Form = () => {
           onChange={(e) => setAuthor(e.target.value)}
         />
         <button
+          id="submitbutton"
           type="submit"
-          className="bg-bs-azure hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-bs-azure hover:bg-blue-700 text-white font-bold py-2 px-10 rounded"
         >
           Add Book
         </button>

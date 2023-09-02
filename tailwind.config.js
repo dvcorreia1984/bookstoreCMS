@@ -8,6 +8,7 @@ module.exports = {
         'bs-pale-grey': '#fafafa',
         'bs-azure': '#0290ff',
         'bs-sec': '#4386bf',
+        'bs-sec-2': '#4386bf',
       },
     },
   },
