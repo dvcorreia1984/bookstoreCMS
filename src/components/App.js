@@ -8,7 +8,7 @@ import '../index.css';
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-gray-100 h-screen w-90">
+      <div className="bg-bs-main-bg h-screen w-90">
         <Nav />
         <Routes>
           <Route path="/" element={<BookList />} />

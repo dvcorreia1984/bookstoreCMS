@@ -4,10 +4,22 @@
 
 body {
   padding: 10vw 5vw;
-  background-color: lightgray;
+  background-color: #f5f6fa;
+}
+
+img {
+  height: 3vh;
+  width: 3vh;
 }
 
 .panel-bg {
   background-color: white;
   padding: 1rem;
+  border-bottom: 2px solid lightgray;
+  z-index: 1000;
+}
+
+#test {
+  margin-top: 0;
+  padding-top: 20px;
 }

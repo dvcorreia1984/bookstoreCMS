@@ -1,22 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import user from '../images/user.png';
 
 const Nav = () => (
   <nav className="panel-bg">
-    <ul className="flex flex-column gap-5 justify-evenly bg-white h-10">
-      <li>
-        <h1 className="font-montserrat text-3xl font-bold text-bs-azure">Bookstore CMS</h1>
-      </li>
-      <li>
-        <Link to="/">BOOKS</Link>
-      </li>
-      <li>
-        <Link to="/categories">CATEGORIES</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-    </ul>
+    <div>
+      <ul className="flex flex-column text-sm gap-5 justify-evenly items-center bg-white h-10">
+        <li>
+          <h1 className="font-montserrat text-3xl font-bold text-bs-azure">Bookstore CMS</h1>
+        </li>
+        <li>
+          <Link to="/">BOOKS</Link>
+        </li>
+        <li>
+          <Link to="/categories">CATEGORIES</Link>
+        </li>
+        <li>
+          <Link to="/login">
+            <div className="w-10 h-10 border-2 border-gray-100-500 rounded-full flex items-center justify-center">
+              <div><img src={user} alt="user" /></div>
+            </div>
+          </Link>
+        </li>
+      </ul>
+    </div>
   </nav>
 );
 

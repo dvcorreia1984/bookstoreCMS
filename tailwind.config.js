@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'pale-grey': '#f5f6fa',
+        'bs-main-bg': '#f5f6fa',
+        'bs-pale-grey': '#fafafa',
         'bs-azure': '#0290ff',
         'bs-sec': '#4386bf',
       },
