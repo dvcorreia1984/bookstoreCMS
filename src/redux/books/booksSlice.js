@@ -4,6 +4,12 @@ import axios from 'axios';
 export const bookstoreApi = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 export const API = 'qAXnPjBsIe5FsS7Ji9ZL';
 
+const initialState = {
+  books: [],
+  status: 'idle',
+  error: null,
+};
+
 export const getBooks = createAsyncThunk('books/getBooks', async () => {
   try {
     const response = await axios.get(`${bookstoreApi}${API}/books`);
@@ -49,7 +55,7 @@ export const removeBook = createAsyncThunk(
 
 export const booksSlice = createSlice({
   name: 'books',
-  initialState: [],
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
