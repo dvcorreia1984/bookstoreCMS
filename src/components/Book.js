@@ -1,3 +1,5 @@
+// Book.js
+
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types'; // Import PropTypes
@@ -7,16 +9,12 @@ const Book = ({ book }) => {
   const dispatch = useDispatch();
 
   const handleRemoveBook = () => {
-    dispatch(removeBook(book.item_id));
+    dispatch(removeBook(book.id));
   };
 
   return (
     <div>
       <li>
-        {book.item_id}
-        {' '}
-        -
-        {' '}
         {book.title}
         {' '}
         by
@@ -36,9 +34,10 @@ const Book = ({ book }) => {
   );
 };
 
+// Add PropTypes validation
 Book.propTypes = {
   book: PropTypes.shape({
-    item_id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,

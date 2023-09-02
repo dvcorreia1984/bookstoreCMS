@@ -1,3 +1,5 @@
+// Form.js
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -17,7 +19,7 @@ const Form = () => {
     }
 
     const newBook = {
-      item_id: uuidv4(),
+      id: uuidv4(),
       title,
       author,
       category: 'fiction',
