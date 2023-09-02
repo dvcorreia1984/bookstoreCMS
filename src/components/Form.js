@@ -32,20 +32,32 @@ const Form = () => {
   };
 
   return (
-    <div>
-      <h3>Add new Book</h3>
-      <form onSubmit={handleSubmit}>
+    <div
+      className="border-t-2 m-10"
+    >
+      <h3
+        id="newbook"
+        className="my-7"
+      >
+        ADD NEW BOOK
+      </h3>
+      <form
+        className="flex flex-row content-evenly gap-4"
+        onSubmit={handleSubmit}
+      >
         <input
+          className="flex-grow border-2 border-gray-300 rounded-lg p-2 focus:border-gray-500"
           type="text"
           name="title"
-          placeholder="title"
+          placeholder="Book title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
+          className="border-2 border-gray-300 rounded-lg p-2 focus:border-gray-500"
           type="text"
           name="author"
-          placeholder="author"
+          placeholder="Author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />

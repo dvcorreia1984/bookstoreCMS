@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  width: 900px;
+}
+
 body {
   padding: 10vw 5vw;
   background-color: #f5f6fa;
@@ -18,6 +22,35 @@ img {
   border-bottom: 2px solid #f2f3f7;
   z-index: 1000;
   border-radius: 5px;
+}
+
+#title {
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 600;
+}
+
+#author {
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+}
+
+#but {
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+}
+
+#newbook {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: #888;
 }
 
 #test {

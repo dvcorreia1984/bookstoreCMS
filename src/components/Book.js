@@ -22,13 +22,22 @@ const Book = ({ book }) => {
             <div className="font-montserrat w-12 h-4 text-sm font-bold not-italic p-5 text-gray-500  ">
               {book.category}
             </div>
-            <div className="font-roboto-slab w-48 h-8 text-3xl font-bold not-italic mx-5">
+            <div
+              id="title"
+              className="font-roboto-slab w-48 h-8 text-xl font-bold not-italic ml-5"
+            >
               {book.title}
             </div>
-            <div className="font-roboto w-24 h-5 text-sm font-light not-italic text-bs-sec mx-5">
+            <div
+              id="author"
+              className="w-24 h-5 text-sm font-light not-italic text-bs-sec ml-5 mt-[-5px]"
+            >
               {book.author}
             </div>
-            <div className="flex gap-5 buttons">
+            <div
+              id="but"
+              className="m-4 flex gap-5 buttons text-bs-sec"
+            >
               <button
                 type="button"
               >
@@ -56,7 +65,11 @@ const Book = ({ book }) => {
               />
             </div>
             <div className="flex flex-col justify-center items-center">
-              <div>64%</div>
+              <div
+                className="text-4xl"
+              >
+                64%
+              </div>
               <div
                 className="text-gray-500"
               >

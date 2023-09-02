@@ -5,7 +5,7 @@ import user from '../images/user.png';
 const Nav = () => (
   <nav className="panel-bg">
     <div>
-      <ul className="flex flex-column text-sm gap-5 justify-evenly items-center bg-white h-10">
+      <ul className="ml-8 flex flex-column text-sm gap-5 justify-start items-center bg-white h-10">
         <li>
           <h1 className="font-montserrat text-3xl font-bold text-bs-azure">Bookstore CMS</h1>
         </li>
@@ -15,6 +15,9 @@ const Nav = () => (
         <li>
           <Link to="/categories">CATEGORIES</Link>
         </li>
+        <li
+          className="flex flex-grow"
+        />
         <li>
           <Link to="/login">
             <div className="w-10 h-10 border-2 border-gray-100-500 rounded-full flex items-center justify-center">

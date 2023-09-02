@@ -19,7 +19,9 @@ const BookList = () => {
 
   return (
     <div id="test" className="bg-bs-pale-grey">
-      <ul>
+      <ul
+        className="mb-10"
+      >
         {books.map((book) => (
           <div key={book.id}>
             <Book book={book} />
@@ -27,6 +29,9 @@ const BookList = () => {
         ))}
       </ul>
       <Form />
+      <div
+        className="m-10 bg-gray-100"
+      />
     </div>
   );
 };
