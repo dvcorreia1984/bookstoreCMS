@@ -30,7 +30,7 @@ const BookList = () => {
       </ul>
       <Form />
       <div
-        className="m-10 bg-gray-100"
+        className="m-10"
       />
     </div>
   );
