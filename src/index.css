@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  padding: 10vw 5vw;
-  background-color: #f5f6fa;
-}
-
 img {
   height: 20px;
   width: 20px;
