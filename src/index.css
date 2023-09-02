@@ -96,3 +96,7 @@ img {
   display: flex;
   border-left: 2px solid #f2f3f7;
 }
+
+#categories {
+  color: grey;
+}
