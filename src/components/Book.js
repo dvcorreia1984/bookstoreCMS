@@ -90,7 +90,13 @@ const Book = ({ book }) => {
               </div>
             </div>
           </div>
-          <div className="w-1/4">
+          <div
+            id="divider"
+            className="px-5"
+          />
+          <div
+            className="w-1/4"
+          >
             <div
               className="flex mt-5"
               id="Chapter"
