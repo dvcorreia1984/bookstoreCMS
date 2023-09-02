@@ -19,7 +19,7 @@ const Form = () => {
     }
 
     const newBook = {
-      item_id: uuidv4(),
+      id: uuidv4(),
       title,
       author,
       category: 'fiction',

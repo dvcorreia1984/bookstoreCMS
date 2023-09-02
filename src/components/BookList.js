@@ -1,3 +1,5 @@
+// BookList.js
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Form from './Form';
@@ -11,8 +13,8 @@ const BookList = () => {
     dispatch(getBooks());
   }, [dispatch]);
 
-  const handleRemoveBook = (id) => {
-    dispatch(removeBook({ item_id: id }));
+  const HandleRemoveBook = async (id) => {
+    dispatch(removeBook(id));
   };
 
   return (
@@ -35,7 +37,7 @@ const BookList = () => {
             <div>
               <button
                 type="button"
-                onClick={() => handleRemoveBook(book.id)}
+                onClick={() => HandleRemoveBook(book.id)}
               >
                 Remove
               </button>

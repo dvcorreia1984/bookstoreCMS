@@ -1,7 +1,9 @@
+// booksSlice.js
+
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const ApiUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/qAXnPjBsIe5FsS7Ji9ZL/books';
+export const ApiUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/vXJpk0d2bxZwuZAgl8ey/books';
 
 const initialState = {
   books: [],
@@ -26,18 +28,22 @@ export const getBooks = createAsyncThunk(
 );
 
 export const addBook = createAsyncThunk(
-  'books/addBook', async (book) => {
-    const response = await axios.post(ApiUrl, book);
+  'books/addBook',
+  async (book) => {
+    const response = await axios.post(ApiUrl, {
+      item_id: book.id,
+      title: book.title,
+      author: book.author,
+      category: book.category,
+    });
     return response.data;
   },
 );
 
-export const removeBook = createAsyncThunk(
-  'books/removeBook', async (id) => {
-    const response = await axios.delete(`${ApiUrl}/${id}`);
-    return response.data;
-  },
-);
+export const removeBook = createAsyncThunk('books/removeBook', async (id) => {
+  const response = await axios.delete(`${ApiUrl}/${id}`);
+  return response.data;
+});
 
 export const booksSlice = createSlice({
   name: 'books',
@@ -53,11 +59,18 @@ export const booksSlice = createSlice({
         state.books = action.payload;
       })
       .addCase(addBook.fulfilled, (state, action) => {
-        state.books.push(action.payload);
+        const book = action.meta.arg;
+        state.books.push(book);
+        state.status = action.type;
+      })
+      .addCase(addBook.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
       })
       .addCase(removeBook.fulfilled, (state, action) => {
         const index = state.books.findIndex((book) => book.id === action.payload);
         state.books.splice(index, 1);
+        state.books = [...state.books];
       });
   },
 });
