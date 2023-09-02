@@ -21,7 +21,6 @@ export const getBooks = createAsyncThunk(
         category: bookData.category,
       };
     });
-    console.log('Transformed Books:', transformedBooks);
     return transformedBooks;
   },
 );
@@ -50,12 +49,15 @@ export const booksSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(getBooks.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = action.type;
         state.books = action.payload;
       })
+      .addCase(addBook.fulfilled, (state, action) => {
+        state.books.push(action.payload);
+      })
       .addCase(removeBook.fulfilled, (state, action) => {
-        const { itemId } = action.payload;
-        return state.filter((book) => book.item_id !== itemId);
+        const index = state.books.findIndex((book) => book.id === action.payload);
+        state.books.splice(index, 1);
       });
   },
 });

@@ -5,7 +5,6 @@ import { getBooks, removeBook } from '../redux/books/booksSlice';
 
 const BookList = () => {
   const books = useSelector((state) => state.books.books);
-  console.log(books);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const BookList = () => {
       <h2>Book List</h2>
       <ul>
         {books.map((book) => (
-          <div key={book.item_id}>
+          <div key={book.id}>
             <li>
               {book.title}
               {' '}
@@ -36,7 +35,7 @@ const BookList = () => {
             <div>
               <button
                 type="button"
-                onClick={() => handleRemoveBook(book.item_id)}
+                onClick={() => handleRemoveBook(book.id)}
               >
                 Remove
               </button>
