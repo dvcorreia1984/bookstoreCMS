@@ -4,7 +4,8 @@ import Form from './Form';
 import { getBooks, removeBook } from '../redux/books/booksSlice';
 
 const BookList = () => {
-  const booksData = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books.books);
+  console.log(books);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const BookList = () => {
     <div>
       <h2>Book List</h2>
       <ul>
-        {booksData.map((book) => (
+        {books.map((book) => (
           <div key={book.item_id}>
             <li>
               {book.title}
